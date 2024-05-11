@@ -2,6 +2,7 @@
 const express = require("express");
 require("dotenv").config();
 const connectdb = require("./config/db");
+const posts = require("./routes/post");
 
 // coonection with database
 connectdb();
@@ -17,3 +18,5 @@ app.listen(port, () => {
 app.get("/", (req, res) => {
   res.status(200).send("hello world (_apprest_)");
 });
+
+app.use("/posts", posts);
