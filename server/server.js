@@ -21,4 +21,4 @@ app.get("/", (req, res) => {
   res.status(200).send("hello world (_apprest_)");
 });
 
-app.use("/posts", posts);
+app.use("/api/posts", posts);

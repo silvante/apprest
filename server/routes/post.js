@@ -4,6 +4,8 @@ const {
   getAllPosts,
   getOnePosts,
   AddPost,
+  updatePost,
+  deletePost,
 } = require("../controller/postControl");
 
 // CRUD mothods
@@ -15,4 +17,9 @@ router.post("/", AddPost);
 // read mothod
 router.get("/:id", getOnePosts);
 
+// update mothod
+router.put("/:id", updatePost);
+
+// delete mothod
+router.delete("/:id", deletePost);
 module.exports = router;

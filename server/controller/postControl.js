@@ -48,8 +48,46 @@ const AddPost = async (req, res) => {
   }
 };
 
+// mothod: PUT
+// des:  update by Id
+
+const updatePost = async (req, res) => {
+  const updateId = req.params.id;
+  try {
+    const { title, image, description } = req.body;
+
+    const updated = await Post.findByIdAndUpdate(updateId, {
+      title,
+      image,
+      description,
+    });
+
+    res.status(201).send(updated);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+// mothod: DELETE
+// des:  removing post by id
+
+const deletePost = async (req, res) => {
+  const removingId = req.params.id;
+  try {
+    const deletePost = await Post.findByIdAndDelete(req.params.id);
+    if (!deletePost) {
+      res.status(404).send("post is not defined...");
+    }
+    res.status(201).send(deletePost);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 module.exports = {
   getAllPosts,
   getOnePosts,
   AddPost,
+  updatePost,
+  deletePost,
 };
