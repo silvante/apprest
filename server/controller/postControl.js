@@ -7,7 +7,7 @@ const getAllPosts = async (req, res) => {
   try {
     const posts = await Post.find();
 
-    return res.status(200).send(posts);
+    return res.status(200).send(posts.reverse());
   } catch (err) {
     res.send(err);
   }

@@ -9,10 +9,6 @@ const Create = () => {
   const [image, setimage] = useState("");
   const [description, setdescription] = useState("");
 
-  console.log(title);
-  console.log(image);
-  console.log(description);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
