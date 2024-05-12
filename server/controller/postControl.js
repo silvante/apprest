@@ -5,7 +5,7 @@ const Post = require("../models/post.model");
 
 const getAllPosts = async (req, res) => {
   try {
-    const posts = Post.find();
+    const posts = await Post.find();
 
     return res.status(200).send(posts);
   } catch (err) {
@@ -19,7 +19,7 @@ const getAllPosts = async (req, res) => {
 const getOnePosts = async (req, res) => {
   const postId = req.params.id;
   try {
-    const post = Post.find({ _id: postId });
+    const post = await Post.find({ _id: postId });
     if (!post) {
       res.status(404).send("post is not defined");
     }
