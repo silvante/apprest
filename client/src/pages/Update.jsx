@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
-const Create = () => {
+const Update = () => {
   return (
     <div className="w-full flex justify-center">
       <div className="w-base flex justify-center">
         <form className="flex flex-col space-y-2 w-96 text-center my-5">
-          <p className="text-lg font-semibold">Create new post</p>
+          <p className="text-lg font-semibold">Update post</p>
           <input
             type="text"
             className="py-2 px-3 border rounded shadow-md"
@@ -28,12 +28,12 @@ const Create = () => {
             name="description"
           />
           <button className="w-44 mx-auto bg-black text-white rounded py-2">
-            submit
+            update
           </button>
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Create;
+export default Update
