@@ -5,6 +5,7 @@ import axios from "axios";
 
 const Home = () => {
   const [Posts, setPosts] = useState([]);
+  const [id, setId] = useState("");
   const fatchData = async () => {
     const { data } = await axios.get("http://localhost:4000/api/posts");
     setPosts(data);
@@ -12,6 +13,11 @@ const Home = () => {
   useEffect(() => {
     fatchData();
   }, []);
+  const deletePost = async (e) => {
+    e.preventDefault();
+    await axios.delete(`http://localhost:4000/api/posts/${id}`);
+    fatchData();
+  };
   return (
     <div className="w-full flex justify-center">
       <div className="w-base">
@@ -35,13 +41,22 @@ const Home = () => {
                     <p className="text-2xl font-bold">{post.title}</p>
                     <p>{post.description}</p>
                   </div>
-                  <div>
+                  <div className="flex space-x-3">
                     <Link
-                      to={"/update/"}
-                      className="py-2 px-4 bg-black text-white rounded"
+                      to={`/update/${post._id}`}
+                      className="py-2 px-4 bg-black text-white rounded inline-block"
                     >
                       update post
                     </Link>
+                    <form onSubmit={deletePost}>
+                      <button
+                        type="submit"
+                        onClick={() => setId(post._id)}
+                        className="py-2 px-4 bg-red-600 text-white rounded"
+                      >
+                        Delete
+                      </button>
+                    </form>
                   </div>
                 </div>
               </li>

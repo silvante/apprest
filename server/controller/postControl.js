@@ -37,9 +37,9 @@ const AddPost = async (req, res) => {
     const { title, image, description } = req.body;
 
     const newPost = await Post.create({
-      title,
-      image,
-      description,
+      title: title,
+      image: image,
+      description: description,
     });
 
     res.status(201).send(newPost);

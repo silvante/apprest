@@ -13,7 +13,6 @@ const postSchema = mongoose.Schema({
   },
   description: {
     type: String,
-    minlength: 25,
   },
 });
 
