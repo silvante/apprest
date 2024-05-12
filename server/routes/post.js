@@ -1,10 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const Post = require("../models/post.model");
-const { getAllPosts, getOnePosts } = require("../controller/postControl");
+const {
+  getAllPosts,
+  getOnePosts,
+  AddPost,
+} = require("../controller/postControl");
 
 // CRUD mothods
 router.get("/", getAllPosts);
+
+// create mothod
+router.post("/", AddPost);
 
 // read mothod
 router.get("/:id", getOnePosts);

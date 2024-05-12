@@ -1,3 +1,5 @@
+const Post = require("../models/post.model");
+
 // mothod: GET
 // des: get all posts
 
@@ -27,7 +29,27 @@ const getOnePosts = async (req, res) => {
   }
 };
 
+// mothod: POST
+// des:  post to server
+
+const AddPost = async (req, res) => {
+  try {
+    const { title, image, description } = req.body;
+
+    const newPost = await Post.create({
+      title,
+      image,
+      description,
+    });
+
+    res.status(201).send(newPost);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 module.exports = {
   getAllPosts,
   getOnePosts,
+  AddPost,
 };
