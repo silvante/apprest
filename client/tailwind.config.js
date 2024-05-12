@@ -10,6 +10,7 @@ export default {
         baseRed: "#fc386c",
         baseBlue: "#3cddeb",
         baseDark: "#0d0d0d",
+        baseLight: "#f2f4f5",
       },
     },
   },
