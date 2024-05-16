@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import HomeVan from "../components/HomeVan";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const [Posts, setPosts] = useState([]);
@@ -19,7 +20,7 @@ const Home = () => {
     fatchData();
   };
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex flex-col items-center">
       <div className="w-base">
         <HomeVan />
         <ul className="w-full space-y-3">
@@ -64,6 +65,7 @@ const Home = () => {
           })}
         </ul>
       </div>
+      <Footer />
     </div>
   );
 };
